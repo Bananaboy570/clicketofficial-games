@@ -1,0 +1,8 @@
+{
+  "name": "Remix Clicket",
+  "description": "Create custom game packs using authentic Blooket assets, icons, and interface designs for your own interactive quizzes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

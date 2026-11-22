@@ -1,0 +1,354 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Nunito', sans-serif;
+    user-select: none;
+    overflow: hidden;
+  }
+}
+
+.font-titan {
+  font-family: 'Titan One', cursive;
+}
+
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Floating pack idle animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes popReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 2.8s ease-in-out infinite;
+}
+
+.animate-pop-reveal {
+  animation: popReveal 0.22s cubic-bezier(0.2, 0.85, 0.3, 1.15) forwards;
+}
+
+/* Pack shake animation buildup */
+@keyframes packShakeIntense {
+  0% { transform: scale(1.05) rotate(0deg); }
+  10% { transform: scale(1.08) rotate(-7deg) translate(-3px, -2px); }
+  20% { transform: scale(1.1) rotate(6deg) translate(3px, 1px); }
+  30% { transform: scale(1.12) rotate(-9deg) translate(-4px, 2px); }
+  40% { transform: scale(1.14) rotate(8deg) translate(4px, -2px); }
+  50% { transform: scale(1.16) rotate(-11deg) translate(-5px, -1px); }
+  60% { transform: scale(1.18) rotate(10deg) translate(5px, 2px); }
+  70% { transform: scale(1.2) rotate(-13deg) translate(-6px, 1px); }
+  80% { transform: scale(1.22) rotate(12deg) translate(6px, -2px); }
+  90% { transform: scale(1.24) rotate(-14deg) translate(-7px, 0px); }
+  100% { transform: scale(1.26) rotate(14deg) translate(7px, 1px); }
+}
+
+/* Foil rip top tear animation */
+@keyframes foilTearTop {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 70% 55%, 40% 70%, 0 60%);
+    transform: translate(-10px, -20px) rotate(-6deg);
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 70% 20%, 40% 35%, 0 25%);
+    transform: translate(-30px, -60px) rotate(-18deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Foil tear bottom drop */
+@keyframes foilTearBottom {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(10px, 30px) rotate(4deg) scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(25px, 75px) rotate(10deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Explosive flash */
+@keyframes flashBurst {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(2.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* Rarity spinning rays */
+@keyframes raysSpinFast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Confetti burst outwards with gravity drift and spin */
+@keyframes particleBurst {
+  0% {
+    transform: translate(0px, 0px) scale(0.3) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(1.1) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+/* Blook card popping out with authentic bounce */
+@keyframes stageCardPopIn {
+  0% {
+    transform: scale(0.2) translateY(80px) rotate(-8deg);
+    opacity: 0;
+    filter: brightness(2.5);
+  }
+  45% {
+    transform: scale(1.14) translateY(-16px) rotate(2deg);
+    opacity: 1;
+    filter: brightness(1.4);
+  }
+  75% {
+    transform: scale(0.97) translateY(4px) rotate(-1deg);
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+/* New badge pop animation */
+@keyframes newBadgeBounce {
+  0% {
+    transform: scale(0) rotate(-15deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.25) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-float-pack {
+  animation: floatGentle 2.4s ease-in-out infinite;
+}
+
+.animate-pack-shake-intense {
+  animation: packShakeIntense 0.85s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+.animate-foil-top {
+  animation: foilTearTop 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-foil-bottom {
+  animation: foilTearBottom 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-flash-burst {
+  animation: flashBurst 0.6s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+.animate-rays-fast {
+  animation: raysSpinFast 14s linear infinite;
+}
+
+.animate-stage-reveal {
+  animation: stageCardPopIn 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+.animate-new-badge {
+  animation: newBadgeBounce 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+/* Chroma & Mystic Blook Movement */
+@keyframes chromaFloatMove {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1.5deg) scale(1);
+  }
+  25% {
+    transform: translateY(-4px) rotate(1.5deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-1px) rotate(2deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-1deg) scale(1.015);
+  }
+}
+
+@keyframes mysticFloatMove {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2deg) scale(1);
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.55));
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg) scale(1.045);
+    filter: drop-shadow(0 0 16px rgba(250, 204, 21, 0.85));
+  }
+}
+
+/* Moving Glossy Shine Sweep across Chromas & Mysticals */
+@keyframes blookShineSweep {
+  0% {
+    transform: translateX(-160%) skewX(-22deg);
+  }
+  45%, 100% {
+    transform: translateX(220%) skewX(-22deg);
+  }
+}
+
+/* Cyborg Coach Looking Around (human pupil + cyber reticle) */
+@keyframes cyborgLookAround {
+  0%, 16% {
+    transform: translate(0px, 0px);
+  }
+  22%, 36% {
+    transform: translate(-5px, -1.5px);
+  }
+  44%, 58% {
+    transform: translate(5px, -2px);
+  }
+  66%, 78% {
+    transform: translate(3.5px, 3px);
+  }
+  84%, 92% {
+    transform: translate(-3.5px, 2px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Cyborg Coach Natural Blink */
+@keyframes cyborgBlink {
+  0%, 42%, 48%, 88%, 94%, 100% {
+    transform: scaleY(0);
+  }
+  45%, 91% {
+    transform: scaleY(1);
+  }
+}
+
+/* Ring Lion spinning halo & Fire Guy flickering flames */
+@keyframes ringSlowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1) translateY(0px);
+  }
+  33% {
+    transform: scaleY(1.08) scaleX(0.95) translateY(-1.5px);
+  }
+  66% {
+    transform: scaleY(0.94) scaleX(1.05) translateY(1px);
+  }
+}
+
+.animate-chroma-move {
+  animation: chromaFloatMove 3.2s ease-in-out infinite;
+}
+
+.animate-mystic-move {
+  animation: mysticFloatMove 2.8s ease-in-out infinite;
+}
+
+.animate-blook-shine {
+  animation: blookShineSweep 2.6s ease-in-out infinite;
+}
+
+.animate-cyborg-look {
+  animation: cyborgLookAround 5.2s ease-in-out infinite;
+}
+
+.animate-cyborg-blink {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: cyborgBlink 4.2s ease-in-out infinite;
+}
+
+.animate-ring-spin {
+  transform-origin: 65px 65px;
+  animation: ringSlowSpin 9s linear infinite;
+}
+
+.animate-flame-flicker {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: flameFlicker 0.9s ease-in-out infinite;
+}
+
+/* Custom Blooket Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
